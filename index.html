@@ -10,18 +10,19 @@
   
   <body>
     <h1> DOT. </h1>
-    // <p>Processing demo</p>
+    <p></p>
     
     <script type="text/processing">
     
       
   
   
-      PImage img;
+      PImage webImg;
 
       void setup(){
       size(1200,700, P3D);
-      img = loadImage("soldertobeparticles.jpg");
+      String url = "https://seyeonpark85.files.wordpress.com/2022/06/soldertobeparticles.jpg";
+      webimag = loadImage(url, "jpg");
       img.resize(1200,700);
       }
 
