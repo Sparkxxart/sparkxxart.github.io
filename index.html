@@ -1,0 +1,92 @@
+<!Doctype: HTML w/ Processing>
+
+<html>
+
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Processing Demo</title>
+      <script type="text/javascript" src="js/processing.js"></script>
+  </head>
+  
+  <body>
+    <h1> DOT. </h1>
+    // <p>Processing demo</p>
+    
+    <script type="text/processing">
+    
+      
+  
+  
+PImage img;
+
+void setup(){
+  size(1200,700, P3D);
+  img = loadImage("soldertobeparticles.jpg");
+  img.resize(1200,700);
+}
+
+void draw(){ 
+  background(#f1f1f1);
+  
+  fill(0); 
+  noStroke();
+  sphereDetail(3);
+  
+  //fill(#ff0000); 
+  //ellipse(mouseX,mouseY,40,40);
+  
+  float tiles =mouseX/10;
+  float tileSize = width/tiles; 
+    
+  push( );
+  translate(width/2,height/2);
+  
+  //rotateY(radians(frameCount));
+  
+  
+  
+  for (int x =0; x<tiles; x++){
+    for (int y =0; y < tiles; y++){
+      
+      color c = img.get(int(x*tileSize),int(y*tileSize));
+      float b = map(brightness(c), 0,180,0,1);
+      
+      float z =map(b,0,1,-80,-80);
+      
+      push();
+      translate(x*tileSize-width/2,y*tileSize- height/2,z);
+      sphere(tileSize*b*0.8);
+      pop();
+      
+      
+      
+      
+      //ellipse(x* tileSize, y* tileSize, 10 , 10 );
+      
+   
+    }
+  }
+  
+  pop();
+}
+  
+
+
+    </script>
+    <canvas id="sketch" style="border: 1px solid black;"></canvas>
+    
+  </body>
+  
+</html>
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
